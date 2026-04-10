@@ -20,7 +20,7 @@ body {
     overflow: hidden;
     
     /* CONFIGURACIÓN DE LA IMAGEN DE FONDO */
-    background-image: url("../img/fondo.png"); /* Asegúrate de que la ruta sea correcta */
+    background-image: url("fondo.png"); /* Asegúrate de que la ruta sea correcta */
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
