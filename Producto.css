@@ -1,0 +1,179 @@
+/* ===== RESET Y BASE (TU CÓDIGO) ===== */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* NUEVO: Fondo unificado EcoVolt */
+body {
+    font-family: 'Inter', sans-serif;
+    /* Misma imagen y degradado que el menú principal */
+    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("../img/fondo.png");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    
+    color: #1e293b;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* ===== HEADER FIJO (AJUSTADO) ===== */
+header {
+    position: sticky;
+    top: 0; /* Corregido de 100 a 0 */
+    height: 64px;
+    backdrop-filter: saturate(180%) blur(16px);
+    background: rgba(0, 0, 0, 0.85); /* Fondo oscuro para que resalte el texto blanco */
+    border-bottom: 1px solid #2196f3;
+    display: flex;
+    align-items: center;
+    padding: 0 24px;
+    z-index: 1000;
+    box-shadow: 0 1px 4px rgb(0 0 0 / 0.3);
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    font-weight: 800;
+    font-size: clamp(1.25rem, 3vw, 1.75rem);
+    color: #ffffff;
+    letter-spacing: 0.05em;
+    gap: 12px;
+}
+
+.header-avatar {
+    width: 175px;
+    height: 100px;
+    object-fit: cover;
+}
+
+/* ===== BOTÓN MENÚ HAMBURGUESA ===== */
+.menu-toggle {
+    margin-left: auto;
+    width: 40px;
+    height: 32px;
+    background: transparent;
+    border: none;
+    padding: 6px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: pointer;
+}
+.menu-toggle span {
+    display: block;
+    height: 3px;
+    background: #2196f3; /* Azul EcoVolt */
+    border-radius: 2px;
+}
+
+/* ===== PANEL LATERAL (SIDE-MENU) ===== */
+.side-menu {
+    position: fixed;
+    top: 0;
+    right: -280px;
+    width: 280px;
+    height: 100%;
+    background: #121212;
+    box-shadow: -2px 0 12px rgba(0,0,0,0.5);
+    transition: right 0.2s ease;
+    padding: 80px 24px 24px;
+    z-index: 1100;
+}
+.side-menu.open { right: 0; }
+.side-menu nav a {
+    display: block;
+    padding: 12px 24px;
+    color: #ffffff;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: 0.3s;
+}
+.side-menu nav a:hover {
+    background: #2196f3;
+    color: white;
+}
+
+.side-menu-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.5);
+    z-index: 1000;
+    opacity: 0;
+    transition: 0.2s ease;
+}
+.side-menu-backdrop.show { opacity: 1; }
+
+/* ===== SECCIONES DE PRODUCTO (CON TRANSPARENCIA) ===== */
+section {
+    background: rgba(0, 0, 0, 0.95); /* Blanco traslúcido para ver el fondo */
+    padding: 40px; /* Reducido de 100px para que se vea mejor en móviles */
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    margin: 40px auto;
+    max-width: 1000px;
+}
+.product-text {
+color: #ffffff;
+
+}
+
+.product-image img {
+    width: 100%;
+    max-width: 500px; /* Limitamos el tamaño para que no sea gigante */
+    border-radius: 16px;
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.1);
+    display: block;
+    margin: 0 auto;
+}
+
+/* Barra de progreso */
+.progress-container {
+    background: #e5e7eb;
+    height: 28px;
+    border-radius: 16px;
+    overflow: hidden;
+    margin-bottom: 24px;
+    border: 1px solid #ccc;
+}
+
+.progress-bar {
+    width: 40%;
+    height: 100%;
+    background: linear-gradient(90deg, #2196f3, #64b5f6);
+    color: white;
+    text-align: center;
+    font-weight: bold;
+    line-height: 28px;
+}
+
+/* Tarjetas de etapas y características */
+.stage-card, .feature-card {
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    padding: 20px;
+    border-radius: 16px;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.stage-card:hover, .feature-card:hover {
+    transform: translateY(-5px);
+    border-color: #2196f3;
+}
+
+/* ===== FOOTER ===== */
+footer {
+    background: rgba(0, 0, 0, 0.9);
+    color: #888;
+    padding: 20px 48px;
+    display: flex;
+    justify-content: center;
+    border-top: 1px solid #2196f3;
+    width: 100%;
+}

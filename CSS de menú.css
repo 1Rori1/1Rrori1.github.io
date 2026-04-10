@@ -1,0 +1,196 @@
+/* ===== RESET ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #0b0b0b;
+    color: #eaeaea;
+    line-height: 1.6;
+}
+
+
+/* ===== HEADER HERO ===== */
+.header-hero {
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
+    
+    /* CONFIGURACIÓN DE LA IMAGEN DE FONDO */
+    background-image: url("../img/fondo.png"); /* Asegúrate de que la ruta sea correcta */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed; /* Esto crea un efecto Parallax suave */
+}
+
+/* Eliminamos o comentamos .header-video ya que no existe más */
+.header-video {
+    display: none;
+}
+
+.header-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.6); /* Ajusta el 0.6 para aclarar u oscurecer la imagen */
+    z-index: 2;
+}
+
+.header-content {
+    position: relative;
+    z-index: 3;
+    text-align: center;
+    top: 50%;
+    transform: translateY(-50%);
+}
+/* ===== LOGO ===== */
+.header-avatar {
+    width: 80px;
+    vertical-align: middle;
+}
+
+.brand-name {
+    font-size: 2.5rem;
+    margin-left: 10px;
+}
+
+.eco {
+    color: #2196f3;
+}
+
+.volt {
+    color: #ffffff;
+}
+
+.tagline {
+    color: #bbbbbb;
+    margin-top: 10px;
+}
+
+/* ===== NAV ===== */
+.nav-buttons {
+    margin-top: 25px;
+}
+
+.nav-buttons a {
+    background: rgba(255, 255, 255, 0.05);
+    color: #64b5f6;
+    border: 1px solid rgba(33, 150, 243, 0.3);
+    padding: 10px 20px;
+    border-radius: 25px;
+    text-decoration: none;
+    margin: 5px;
+    display: inline-block;
+    transition: all 0.3s ease;
+}
+
+.nav-buttons a:hover {
+    background: #2196f3;
+    color: black;
+    transform: scale(1.08);
+}
+
+/* ===== SECTIONS ===== */
+.hero, .benefits, .cta, .testimonial {
+    padding: 60px 20px;
+    text-align: center;
+    background: #121212;
+}
+
+.container {
+    max-width: 1100px;
+    margin: auto;
+}
+
+h1, h2, h3 {
+    letter-spacing: 1px;
+}
+
+h2 {
+    margin-bottom: 20px;
+}
+
+p {
+    margin-bottom: 20px;
+}
+
+/* ===== BUTTONS ===== */
+.button {
+    background: linear-gradient(135deg, #2196f3, #64b5f6);
+    color: black;
+    padding: 12px 25px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.button:hover {
+    transform: scale(1.07);
+    box-shadow: 0 0 15px #64b5f6;
+}
+
+.button.small {
+    padding: 8px 15px;
+    font-size: 0.9rem;
+}
+
+/* ===== CARDS ===== */
+.cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.card {
+    background: #1a1a1a;
+    border: 1px solid rgba(33, 150, 243, 0.2);
+    padding: 20px;
+    border-radius: 15px;
+    width: 300px;
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 0 20px rgba(33, 150, 243, 0.3);
+}
+
+/* ===== MEDIA ===== */
+iframe {
+    margin-top: 20px;
+    border-radius: 10px;
+    max-width: 100%;
+}
+
+audio {
+    margin-top: 20px;
+}
+
+/* ===== FOOTER ===== */
+footer {
+    background: black;
+    text-align: center;
+    padding: 20px;
+    color: #888;
+    font-size: 0.9rem;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+    .cards {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .brand-name {
+        font-size: 2rem;
+    }
+}

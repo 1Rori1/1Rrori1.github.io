@@ -1,0 +1,196 @@
+/* ===== RESET Y GENERALES (TU ESTILO) ===== */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* NUEVO: Fondo Global igual al Menú Principal */
+body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    
+    /* Aplicamos la misma imagen y efectos que en el Home */
+    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("../img/fondo.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed; /* Efecto Parallax suave */
+    
+    color: #1f2937;
+    display: grid;
+    grid-template-rows: 64px 1fr auto;
+    overflow-y: scroll;
+}
+
+/* ===== HEADER FIJO (AJUSTADO PARA EL TEMA OSCURO) ===== */
+header {
+    position: sticky;
+    top: 0;
+    height: 64px;
+    backdrop-filter: saturate(180%) blur(16px);
+    background: rgba(0, 0, 0, 0.85); /* Fondo oscuro para el header */
+    border-bottom: 1px solid #2196f3;
+    display: flex;
+    align-items: center;
+    padding: 0 24px;
+    z-index: 1000;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    font-weight: 00;
+    font-size: clamp(1.25rem, 3vw, 1.75rem);
+    color: #ffffff;
+    letter-spacing: 0.05em;
+    gap: 12px;
+}
+
+.header-avatar {
+    width: 175px;
+    height: 100px;
+    object-fit: cover;
+}
+
+/* ===== BOTÓN MENÚ HAMBURGUESA ===== */
+.menu-toggle {
+    margin-left: auto;
+    width: 40px;
+    height: 32px;
+    background: transparent;
+    border: none;
+    padding: 6px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: pointer;
+}
+
+.menu-toggle span {
+    display: block;
+    height: 3px;
+    background: #2196f3; /* Azul EcoVolt */
+    border-radius: 2px;
+}
+
+/* ===== PANEL LATERAL (SIDE-MENU) ===== */
+.side-menu {
+    position: fixed;
+    top: 0;
+    right: -280px;
+    width: 280px;
+    height: 100%;
+    background: #121212;
+    box-shadow: -2px 0 12px rgba(0,0,0,0.5);
+    transition: right 0.2s ease;
+    padding: 80px 24px 24px;
+    z-index: 1100;
+}
+.side-menu.open { right: 0; }
+.side-menu nav a {
+    display: block;
+    padding: 12px 24px;
+    color: #ffffff;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: 0.3s;
+}
+.side-menu nav a:hover {
+    background: #2196f3;
+    color: white;
+}
+
+.side-menu-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.5);
+    z-index: 1000;
+    opacity: 0;
+    transition: 0.2s ease;
+}
+.side-menu-backdrop.show { opacity: 1; }
+
+/* ===== ÁREA DE CONTENIDO (TRANSPARENTE PARA VER FONDO) ===== */
+main.content {
+    flex-grow: 1;
+    padding: 32px 20px;
+    background: transparent; /* Quitamos el fondo gris para ver la imagen */
+    max-width: 1000px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+/* SECCIONES (TARJETAS BLANCAS) */
+#vision, #team {
+    background: rgba(0, 0, 0, 0.95); /* Blanco con leve transparencia */
+    padding: 32px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    color: #1e293b;
+}
+
+#vision h2, #team h2 {
+    color: #0b3b8c;
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 2rem;
+}
+
+.textoequipo {
+color: #ffffff;
+
+}
+
+.textoequipo2 {
+    color: #0b3b8c;
+}
+
+/* ===== GALERÍA DE EQUIPO ===== */
+.gallery-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.gallery {
+    background: white;
+    border-radius: 15px;
+    padding-bottom: 15px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    transition: 0.3s;
+    text-align: center;
+}
+
+.gallery:hover {
+    transform: translateY(-5px);
+    border: 2px solid #2196f3;
+}
+
+.gallery img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin: 20px auto;
+    display: block;
+    border: 3px solid #2196f3;
+}
+
+.footer {
+    font-weight: bold;
+    color: #0b3b8c;
+}
+
+/* ===== FOOTER ===== */
+footer {
+    background: rgba(0, 0, 0, 0.9);
+    color: #888;
+    padding: 20px;
+    text-align: center;
+    border-top: 1px solid #2196f3;
+}

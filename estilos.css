@@ -1,0 +1,384 @@
+/* Esto es para que todos los elementos y sus hijos usen el mismo sistema de caja */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+/* Botón menú hamburguesa */
+.menu-toggle {
+  margin-left: auto;
+  width: 40px;
+  height: 32px;
+  background: transparent;
+  border: none;
+  padding: 6px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  cursor: pointer;
+}
+.menu-toggle span {
+  display: block;
+  height: 3px;
+  background: #0b3b8c;
+  border-radius: 2px;
+}
+
+/* Panel lateral derecho */
+.side-menu {
+  position: fixed;
+  top: 0;
+  right: -280px;
+  width: 280px;
+  height: 100%;
+  background: #000000;
+  box-shadow: -2px 0 12px rgba(0,0,0,0.12);
+  transition: right 0.2s ease;
+  padding: 80px 24px 24px;
+  z-index: 1100;
+}
+.side-menu.open { right: 0; }
+.side-menu nav { margin: 0 -24px; }
+.side-menu nav a {
+  display: block;
+  padding: 12px 24px;
+  color: #0b3b8c;
+  text-decoration: none;
+  border-radius: 0;
+  transition: background 0.2s ease, color 0.2s ease;
+  text-transform: uppercase;
+  width: 100%;
+}
+.side-menu nav a:hover,
+.side-menu nav a:focus {
+  background: #0b3b8c;
+  color: #ffffff;
+}
+
+/* Backdrop */
+.side-menu {
+    position: fixed;
+    top: 0;
+    right: -280px;
+    width: 280px;
+    height: 100%;
+    background: #121212;
+    box-shadow: -2px 0 12px rgba(0,0,0,0.5);
+    transition: right 0.2s ease;
+    padding: 80px 24px 24px;
+    z-index: 1100;
+}
+.side-menu.open { right: 0; }
+.side-menu nav a {
+    display: block;
+    padding: 12px 24px;
+    color: #ffffff;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: 0.3s;
+}
+.side-menu nav a:hover {
+    background: #2196f3;
+    color: white;
+}
+
+.side-menu-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.5);
+    z-index: 1000;
+    opacity: 0;
+    transition: 0.2s ease;
+}
+.side-menu-backdrop.show { opacity: 1; }
+
+/* Tipografía base del sitio, con scroll suave y colores claros */
+html {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+    Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  scroll-behavior: smooth; /* hace que el desplazamiento entre secciones sea suave */
+  font-size: 16px;
+  color-scheme: light;
+}
+
+/* El cuerpo ocupa toda la altura, y se organiza como rejilla con header-arriba, contenido y footer */
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: #fafafa;
+  color: #1f2937;
+  display: grid;
+  grid-template-rows: 64px 1fr auto; /* header, contenido, footer */
+  overflow-y: scroll;
+  -webkit-font-smoothing: antialiased; /* suaviza tipografía en Mac */
+  -moz-osx-font-smoothing: grayscale; /* igual que el de arriba pero para Mac */
+}
+
+/* Enlaces normales con transición suave al pasar el cursor */
+a {
+  color: #3b82f6;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+/* Hover y focus para los links */
+a:hover, a:focus {
+  color: #2563eb;
+  outline: none;
+}
+
+/* Para que los botones usen la misma letra que el resto */
+button {
+  font-family: inherit;
+  cursor: pointer;
+}
+
+/* Inputs y áreas de texto con misma fuente */
+input, textarea {
+  font-family: inherit;
+  font-size: 1rem;
+  color: #1f2937;
+}
+
+/* Estilito fino para la barra de scroll */
+body::-webkit-scrollbar {
+  width: 12px;
+}
+body::-webkit-scrollbar-track {
+  background: #f3f4f6;
+  border-radius: 6px;
+}
+body::-webkit-scrollbar-thumb {
+  background: #3b82f6cc;
+  border-radius: 6px;
+  border: 3px solid #f3f4f6;
+  transition: background 0.3s ease;
+}
+body::-webkit-scrollbar-thumb:hover {
+  background: #2563ebcc;
+}
+
+/* ==== HEADER (esa barra superior pegada) ==== */
+header {
+  position: sticky; /* se queda pegado arriba al hacer scroll */
+  top: 0;
+  height: 64px;
+  backdrop-filter: saturate(180%) blur(16px); /* le da ese fondo como desenfocado */
+  background: rgba(255 255 255 / 0.85);
+  border-bottom: 1px solid #e5e7eb;
+  display: flex;
+  align-items: center;
+  padding: 0 24px;
+  z-index: 1000;
+  box-shadow: 0 1px 4px rgb(0 0 0 / 0.05); /* sombrita suave abajo */
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  font-weight: 800;
+  font-size: clamp(1.25rem, 3vw, 1.75rem);
+  color: #0b3b8c;
+  letter-spacing: 0.05em;
+  user-select: none;
+  flex-shrink: 0;
+  gap: 12px;
+}
+
+/* Icono de rayo al lado del nombre */
+.brand .material-icons {
+  font-size: 32px;
+  margin-right: 8px;
+  color: #3b82f6;
+}
+
+/* Avatar redondo en el header */
+.header-avatar {
+    width: 175px;
+    height: 100px;
+    object-fit: cover;
+}
+
+/* ==== CONTENIDO PRINCIPAL ====
+   (restaurado: estilos del contenedor principal debajo del header) */
+main.content {
+  flex-grow: 1;
+  padding: 32px 48px;
+  min-height: calc(100vh - 64px);
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 64px;
+  background: #f9fafb;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* === BASE Y FONDO GLOBAL === */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  /* Imagen de fondo oficial EcoVolt */
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("../img/fondo.png");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  color: #1e293b;
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+/* === HEADER (Mismo estilo que el resto del sitio) === */
+header {
+  position: sticky;
+  top: 0;
+  height: 64px;
+  backdrop-filter: saturate(180%) blur(16px);
+  background: rgba(0, 0, 0, 0.85);
+  border-bottom: 1px solid #2196f3;
+  display: flex;
+  align-items: center;
+  padding: 0 24px;
+  z-index: 1000;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  font-weight: 800;
+  font-size: clamp(1.25rem, 3vw, 1.75rem);
+  color: #ffffff;
+  gap: 12px;
+}
+
+.header-avatar {
+    width: 175px;
+    height: 100px;
+    object-fit: cover;
+}
+
+/* === SECCIONES (EFECTO CRISTAL / BLANCO TRASLÚCIDO) === */
+section#innovation, section#contact {
+  background: rgba(0, 0, 0, 0.95); /* Blanco con transparencia */
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  max-width: 900px;
+  margin: 40px auto;
+  display: block;
+  color: #ebebeb;
+}
+
+#innovation h2, #contact h2 {
+  font-size: clamp(1.75rem, 3vw, 2.25rem);
+  margin-bottom: 16px;
+  font-weight: 800;
+  color: #0b3b8c;
+}
+
+/* === GALERÍA DE INNOVACIÓN === */
+#innovation .media-gallery {
+  margin-top: 32px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 20px;
+}
+
+#innovation .media-gallery img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 16px;
+  box-shadow: 0 4px 14px rgba(33, 150, 243, 0.3);
+  transition: transform 0.3s ease;
+}
+
+#innovation .media-gallery img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 20px rgba(33, 150, 243, 0.5);
+}
+
+/* === FORMULARIO DE CONTACTO === */
+#contact form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 100%;
+}
+
+#contact input, #contact textarea {
+  background: #171717;
+  border: 1.5px solid #cbd5e1;
+  border-radius: 12px;
+  padding: 12px 16px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+#contact input:focus, #contact textarea:focus {
+  border-color: #373737;
+  background: rgb(68, 68, 68);
+  outline: none;
+  box-shadow: 0 0 8px rgba(33, 150, 243, 0.3);
+}
+
+#contact .btn-submit {
+  background: linear-gradient(135deg, #161616, #171717);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  padding: 14px 36px;
+  font-weight: 700;
+  font-size: 1.125rem;
+  cursor: pointer;
+  transition: transform 0.3s ease, background 0.3s ease;
+  align-self: flex-start;
+}
+
+#contact .btn-submit:hover {
+  background: #8e8e8e;
+  transform: translateY(-2px);
+}
+
+/* === INFO DE CONTACTO Y BOTONES EXTRA === */
+.contact-info .info-item .material-icons {
+  color: #ffffff;
+}
+
+.subscribe-button {
+  background: #1a1a1a;
+  color: rgb(55, 55, 55);
+  border-radius: 12px;
+  padding: 12px 30px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: 0.3s;
+}
+
+.subscribe-button:hover {
+  background: #059669;
+}
+
+/* === FOOTER === */
+footer {
+  background: rgba(0, 0, 0, 0.9);
+  color: #404040;
+  padding: 20px 48px;
+  display: flex;
+  justify-content: center;
+  border-top: 1px solid #2196f3;
+  width: 100%;
+  margin-top: 40px;
+}
+
+footer p {
+  color: #888;
+}
