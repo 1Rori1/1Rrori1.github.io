@@ -9,7 +9,7 @@
 body {
     font-family: 'Inter', sans-serif;
     /* Misma imagen y degradado que el menú principal */
-    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("../img/fondo.png");
+    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("fondo.png");
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
