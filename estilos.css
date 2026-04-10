@@ -224,7 +224,7 @@ main.content {
 body {
   font-family: 'Inter', sans-serif;
   /* Imagen de fondo oficial EcoVolt */
-  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("../img/fondo.png");
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("fondo.png");
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
